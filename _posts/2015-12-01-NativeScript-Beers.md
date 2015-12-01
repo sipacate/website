@@ -42,7 +42,8 @@ tns run android --emulator
 
 ![Initial app](../img/2015-12-01-initial-app.png)
 
-## Project Structures
+
+## Project Structure
 
 
     .
@@ -77,3 +78,20 @@ Inside the `app` folder is a file called `main-page.xml` which has the default u
 Let’s start by designing the application using XML. Open `main-page.xml` and look at the default code. Remove everything except the `Page` tag. The `Page` tag has an attribute called `loaded` which executes the `pageLoaded` function once the app loads. The `pageLoaded` function is inside the `main-page.js` file.
 
 This project will use a *stack layout* to design our app. There are [a number of layouts offered by native script](http://docs.nativescript.org/layouts).
+
+Inside the Page tag add the stack layout.
+
+```
+<StackLayout orientation="vertical">
+
+</StackLayout>
+```
+
+
+Define the stack layout with a vertical orientation. Add a button inside the stack layout.
+
+```
+<Button text="Get beer list" height="50px" style="background-color:green;width:300px;border:none;font-size:20px;" />
+```
+
+Save changes and run the app. It should look something like the below.
