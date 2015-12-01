@@ -123,6 +123,9 @@ var http = require("http");
 ```
 
 Inside the `beers` function, and using the `http` module, now make the API call.
+For the needs of this tutorial, the beer catalog is a JSON file on
+`{{ site.baseurl }}/beers/beers.json`.
+
 
 http.getJSON("{{ site.baseurl }}/beers/beers.json").then(function(r) {
 
