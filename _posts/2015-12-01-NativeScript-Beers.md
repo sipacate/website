@@ -275,3 +275,31 @@ And then we add the image to the `ListView.itemTemplate`:
 ```
 
 ![After adding button](2015-12-01-get_beer_list_btn.png)
+
+
+## Let's forget the Button
+
+Let's call for the beer list without button. We are going to use application's lifecycle method `onLaunch`
+on `app.js`:
+
+
+```
+application.on(application.launchEvent, function (args) {
+   var mainPage = require("./main-page");
+   mainPage.beers();
+})
+```
+
+Now you can delete the `Buttom` from `main-page.xml`.
+
+
+## And how about the ActionBar title?
+
+To have access to the `ActionBar` with the application title, you only need to explicitly declare it in `main-page.xml`:
+
+```
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" loaded="pageLoaded">
+  <Page.actionBar>
+    <ActionBar title="NativeScript Beers" android.icon="res://ic_test"/>
+  </Page.actionBar>
+```
