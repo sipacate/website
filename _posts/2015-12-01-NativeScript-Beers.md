@@ -103,7 +103,7 @@ Define the stack layout with a vertical orientation. Add a button inside the sta
 
 Save changes and run the app. It should look something like the below.
 
-![After adding button](2015-12-01-get_beer_list_btn.png)
+![After adding button](../img/2015-12-01-get_beer_list_btn.png)
 
 
 ## Fetching data from Beer catalog
@@ -274,7 +274,7 @@ And then we add the image to the `ListView.itemTemplate`:
 </ListView.itemTemplate>
 ```
 
-![After adding button](2015-12-01-get_beer_list_btn.png)
+![After adding pics](../2015-12-01-beers-with-pics.png)
 
 
 ## Let's forget the Button
