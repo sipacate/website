@@ -5,7 +5,7 @@ owner: Horacio Gonzalez
 description: Beer Tutorials
 filename: beer-tutorials
 baseurl: "http://beertutorials.github.io/website/"
-url: "http://beer-tutorials.org"
+url: "http://beertutorials.github.io/website/"
 twitter_username: LostInBrittany
 highlighter: pygments
 
