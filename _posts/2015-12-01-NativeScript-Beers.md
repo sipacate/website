@@ -45,6 +45,8 @@ tns run android --emulator
 ![Initial app](../img/2015-12-01-initial-app.png)
 
 
+The `tns livesync` command instantly transfers XML, CSS, and JavaScript files to a running NativeScript app. If you set the command's `--watch` flag (`tns livesync ios --emulator --watch` or `tns livesync android --emulator --watch`), the NativeScript CLI will watch your app for changes, and apply those changes automatically after you save files. Be warned, however, that the `livesync` command currently does not show `console.log()` output or stack traces. So during debugging you may want to switch back to `tns run` or use `adb logcat` in parallel to get logs directly from the android emulator.
+
 ## Project Structure
 
 
@@ -101,6 +103,7 @@ Define the stack layout with a vertical orientation. Add a button inside the sta
 
 Save changes and run the app. It should look something like the below.
 
+![After adding button](2015-12-01-get_beer_list_btn.png)
 
 
 ## Fetching data from Beer catalog
@@ -150,33 +153,122 @@ http.getJSON("{{ site.baseurl }}/beers/beers.json").then(function(r) {
 ```
 
 
-The code above makes the API call with the search text hard coded for now, this will become dynamic later in the tutorial.
+The code above makes the API call.
 
 When running an app in the emulator you will need to run ‘adb logcat’ to check log messages.
 
-Save changes and run the app on the emulator. Click the search button and the returned result from Flickr should be visible in terminal.
+Save changes and run the app on the emulator. Click the *get beer list* button and the
+returned result from the server should be visible in terminal.
 
-Next create the image url using the response returned and push the URL to the images array.
+Next use the response returned to push the beers information to an array.
 
-An observable array is required to create and detect changes to a collection of things. Bind this same observable array to the view so that the view updates whenever a change occurs.
+An `observable array` is required to create and detect changes to a collection of things.
+Bind this same observable array to the view so that the view updates whenever a change occurs.
 
-To create the observable array, add these variable declarations to main-page.js :
+To create the `observable array`, add these variable declarations to `main-page.js` :
 
+
+```
 var observableArray = require("data/observable-array");
-var images = new observableArray.ObservableArray([]);
-Based on the response returned from the API request, the next task is to create the flickr image URL. Detailed information can be found here about creating flickr URLs.
+var beerList = new observableArray.ObservableArray([]);
+```
 
-Next, we iterate through the returned data, create the image URLs and push to the images array. Add this code inside the signin function.
 
-var imgUrl = '';
+Next, we iterate through the returned data:
 
-var photoList = r.photos.photo;
 
-for (var i = 0; i < photoList.length; i++) {
-    imgUrl = "https://farm" + photoList[i].farm + ".staticflickr.com/" + photoList[i].server + "/" + photoList[i].id + "_" + photoList[i].secret + ".jpg";
-
-    images.push({
-        img: imgUrl
-    });
-
+```
+var beer = {
+  name: r[i].name,
+  description: r[i].description,
+  alcohol: r[i].alcohol
 }
+```
+
+
+## Binding data to the UI
+
+Once the data is in the `beersList` array, bind it to the UI. For displaying the data, create a `ListView` in `main-page.xml`, underneath the existing `Button` element.
+
+
+```
+<ListView>
+    <ListView.itemTemplate>
+
+        <Image stretch="fill" height="200px" />
+
+    </ListView.itemTemplate>
+</ListView>
+```
+
+
+Bind the `beersList` array to the list view:
+
+
+```
+<ListView items="{{ beerList }}">
+<ListView.itemTemplate>
+  <StackLayout orientation="vertical">
+    <Label id="name" text="{{ name }}" class="beerName" />
+    <Label id="description" text="{{ description }}" textWrap="true" />
+  </StackLayout>
+</ListView.itemTemplate>
+</ListView>
+```
+
+To make our list more user friendly, we also add some CSS to `app.css`:
+
+
+```
+.beerName {
+  font-size: 20;
+}
+```
+
+For the `beersList` array to be available across the view, set the `beersList` array in the observable module. Do this by importing an observable module and using it to create an observable object.
+
+
+```
+var observableModule = require("data/observable");
+var pageData = new observableModule.Observable();
+```
+
+In the `pageLoaded` function, set the images array to the observable module and add the observable module to the page context.
+
+
+```
+function pageLoaded(args) {
+    var page = args.object;
+    pageData.set("images", images);
+    page.bindingContext = pageData;
+}
+```
+
+## Getting the beers pics
+
+We can also extract the image URL from the received JSON :
+
+
+```
+var beer = {
+  name: r[i].name,
+  description: r[i].description,
+  alcohol: r[i].alcohol,
+  img: "http://beertutorials.github.io/website/"+r[i].img
+}
+```
+
+And then we add the image to the `ListView.itemTemplate`:
+
+
+```
+<ListView.itemTemplate>
+  <StackLayout orientation="horizontal">
+    <Image width="100px" height="100px" src="{{img}}" />
+    <StackLayout orientation="vertical">
+      <Label id="name" text="{{ name }}" class="beerName" />
+      <Label id="description" text="{{ description }}" textWrap="true" />
+    </StackLayout>
+  </StackLayout>
+</ListView.itemTemplate>
+```
