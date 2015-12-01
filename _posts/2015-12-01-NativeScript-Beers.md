@@ -83,6 +83,7 @@ This project will use a *stack layout* to design our app. There are [a number of
 
 Inside the Page tag add the stack layout.
 
+
 ```
 <StackLayout orientation="vertical">
 
@@ -92,23 +93,29 @@ Inside the Page tag add the stack layout.
 
 Define the stack layout with a vertical orientation. Add a button inside the stack layout.
 
+
 ```
 <Button text="Get beer list" height="50px" style="width:300px;border:none;font-size:20px;" />
 ```
 
+
 Save changes and run the app. It should look something like the below.
+
 
 
 ## Fetching data from Beer catalog
 
 Add an attribute called `tap` to the *Get beer list* button.
 
+
 ```
 tap="beers"
 ```
 
+
 Now, when the user taps the search button the `beers` function is called.
 Let’s define the `beers` function inside` main-page.js`.
+
 
 ```
 exports.beers = function() {
@@ -116,17 +123,21 @@ exports.beers = function() {
 };
 ```
 
+
 Calling the API will require the `http` module, so import the module into `main-page.js`.
+
 
 ```
 var http = require("http");
 ```
+
 
 Inside the `beers` function, and using the `http` module, now make the API call.
 For the needs of this tutorial, the beer catalog is a JSON file on
 `{{ site.baseurl }}/beers/beers.json`.
 
 
+```
 http.getJSON("{{ site.baseurl }}/beers/beers.json").then(function(r) {
 
     console.log(JSON.stringify(r));
@@ -136,6 +147,9 @@ http.getJSON("{{ site.baseurl }}/beers/beers.json").then(function(r) {
     console.log(e);
 
 });
+```
+
+
 The code above makes the API call with the search text hard coded for now, this will become dynamic later in the tutorial.
 
 When running an app in the emulator you will need to run ‘adb logcat’ to check log messages.
