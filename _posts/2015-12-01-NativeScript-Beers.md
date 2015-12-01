@@ -210,73 +210,62 @@ Once the data is in the `beersList` array, bind it to the UI. For displaying the
 Bind the `beersList` array to the list view:
 
 
-```
-<ListView items="{{ beerList }}">
-<ListView.itemTemplate>
-  <StackLayout orientation="vertical">
-    <Label id="name" text="{{ name }}" class="beerName" />
-    <Label id="description" text="{{ description }}" textWrap="true" />
-  </StackLayout>
-</ListView.itemTemplate>
-</ListView>
-```
+        <ListView items="{{ beerList }}">
+        <ListView.itemTemplate>
+          <StackLayout orientation="vertical">
+            <Label id="name" text="{{ name }}" class="beerName" />
+            <Label id="description" text="{{ description }}" textWrap="true" />
+          </StackLayout>
+        </ListView.itemTemplate>
+        </ListView>
 
 To make our list more user friendly, we also add some CSS to `app.css`:
 
 
-```
-.beerName {
-  font-size: 20;
-}
-```
+        .beerName {
+          font-size: 20;
+        }
 
 For the `beersList` array to be available across the view, set the `beersList` array in the observable module. Do this by importing an observable module and using it to create an observable object.
 
 
-```
-var observableModule = require("data/observable");
-var pageData = new observableModule.Observable();
-```
+        var observableModule = require("data/observable");
+        var pageData = new observableModule.Observable();
 
 In the `pageLoaded` function, set the images array to the observable module and add the observable module to the page context.
 
 
-```
-function pageLoaded(args) {
-    var page = args.object;
-    pageData.set("images", images);
-    page.bindingContext = pageData;
-}
-```
+        function pageLoaded(args) {
+            var page = args.object;
+            pageData.set("images", images);
+            page.bindingContext = pageData;
+        }
 
 ## Getting the beers pics
 
 We can also extract the image URL from the received JSON :
 
 
-```
-var beer = {
-  name: r[i].name,
-  description: r[i].description,
-  alcohol: r[i].alcohol,
-  img: "http://beertutorials.github.io/website/"+r[i].img
-}
-```
+        var beer = {
+          name: r[i].name,
+          description: r[i].description,
+          alcohol: r[i].alcohol,
+          img: "http://beertutorials.github.io/website/"+r[i].img
+        }
 
 And then we add the image to the `ListView.itemTemplate`:
 
 
-```
-<ListView.itemTemplate>
-  <StackLayout orientation="horizontal">
-    <Image width="100px" height="100px" src="{{img}}" />
-    <StackLayout orientation="vertical">
-      <Label id="name" text="{{ name }}" class="beerName" />
-      <Label id="description" text="{{ description }}" textWrap="true" />
-    </StackLayout>
-  </StackLayout>
-</ListView.itemTemplate>
-```
+        <ListView.itemTemplate>
+          <StackLayout orientation="horizontal">
+            <Image width="100px" height="100px" src="{{img}}" />
+            <StackLayout orientation="vertical">
+              <Label id="name" text="{{ name }}" class="beerName" />
+              <Label id="description" text="{{ description }}" textWrap="true" />
+            </StackLayout>
+          </StackLayout>
+        </ListView.itemTemplate>
+
 
 ![After adding pics]({{ site.baseURL }}/img/2015-12-01-beers-with-pics.png)
 
