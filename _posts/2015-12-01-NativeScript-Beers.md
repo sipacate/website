@@ -194,9 +194,10 @@ Once the data is in the `beersList` array, bind it to the UI. For displaying the
 ```
 <ListView>
     <ListView.itemTemplate>
-
-        <Image stretch="fill" height="200px" />
-
+      <StackLayout orientation="vertical">
+        <Label id="name" class="beerName" />
+        <Label id="description" textWrap="true" />
+      </StackLayout>
     </ListView.itemTemplate>
 </ListView>
 ```
@@ -272,3 +273,5 @@ And then we add the image to the `ListView.itemTemplate`:
   </StackLayout>
 </ListView.itemTemplate>
 ```
+
+![After adding button](2015-12-01-get_beer_list_btn.png)
