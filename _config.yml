@@ -1,0 +1,27 @@
+# Site settings
+title: Beer Tutorials
+email: horacio.gonzalez@gmail.com
+owner: Horacio Gonzalez
+description: Beer Tutorials
+filename: beer-tutorials
+baseurl: ""
+url: "http://beer-tutorials.org"
+twitter_username: LostInBrittany
+highlighter: pygments
+
+# Build settings
+markdown: kramdown
+highlighter: pygments
+permalink: pretty
+paginate: 5
+exclude: ["node_modules"]
+
+authors:
+  horacio:
+    display_name: Horacio Gonzalez
+    gravatar: 97583a8c8a78c58ff8d2ff2bada754d7
+    email: horacio.gonzalez@cityzendata.com
+    web: http://beer-tutorials.org
+    twitter: LostInBrittany
+    github: LostInBrittany
+    gplus: +LostInBrittany
