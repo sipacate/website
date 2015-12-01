@@ -46,7 +46,7 @@ tns run android --emulator
 >
 > If you find issues while initializing the app, read carefully [these instauctions](http://docs.nativescript.org/setup/ns-cli-setup/)
 
-![Initial app](../img/2015-12-01-initial-app.png)
+![Initial app]({{ site.baseURL }}/img/2015-12-01-initial-app.png)
 
 
 The `tns livesync` command instantly transfers XML, CSS, and JavaScript files to a running NativeScript app. If you set the command's `--watch` flag (`tns livesync ios --emulator --watch` or `tns livesync android --emulator --watch`), the NativeScript CLI will watch your app for changes, and apply those changes automatically after you save files. Be warned, however, that the `livesync` command currently does not show `console.log()` output or stack traces. So during debugging you may want to switch back to `tns run` or use `adb logcat` in parallel to get logs directly from the android emulator.
@@ -107,7 +107,7 @@ Define the stack layout with a vertical orientation. Add a button inside the sta
 
 Save changes and run the app. It should look something like the below.
 
-![After adding button](../img/2015-12-01-get_beer_list_btn.png)
+![After adding button]({{ site.baseURL }}/img/2015-12-01-get_beer_list_btn.png)
 
 
 ## Fetching data from Beer catalog
@@ -278,7 +278,7 @@ And then we add the image to the `ListView.itemTemplate`:
 </ListView.itemTemplate>
 ```
 
-![After adding pics](../img/2015-12-01-beers-with-pics.png)
+![After adding pics]({{ site.baseURL }}/img/2015-12-01-beers-with-pics.png)
 
 
 ## Let's forget the Button
@@ -309,4 +309,4 @@ To have access to the `ActionBar` with the application title, you only need to e
 ```
 
 
-![After adding pics](../img/2015-12-01-beers-with-pics-no-button.png)
+![After adding pics]({{ site.baseURL }}/img/2015-12-01-beers-with-pics-no-button.png)
