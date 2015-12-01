@@ -13,11 +13,13 @@ In this tutorial we will create a simple app that queries a beer catalog and dis
 
 Install [NodeJS](https://nodejs.org/) and then using the node package manager (npm), install native script.
 
+
 ```
 npm install -g nativescript
 ```
 
 After installing native script, create a new project called `nativescript-beers`.
+
 
 ```
 tns create nativescript-beers
@@ -25,11 +27,13 @@ tns create nativescript-beers
 
 Navigate to the project directory and add the mobile development platform.
 
+
 ```
 tns platform add android
 ```
 
 Run the application on the Android emulator.
+
 
 ```
 tns run android --emulator
@@ -46,6 +50,7 @@ tns run android --emulator
 
 
 The `tns livesync` command instantly transfers XML, CSS, and JavaScript files to a running NativeScript app. If you set the command's `--watch` flag (`tns livesync ios --emulator --watch` or `tns livesync android --emulator --watch`), the NativeScript CLI will watch your app for changes, and apply those changes automatically after you save files. Be warned, however, that the `livesync` command currently does not show `console.log()` output or stack traces. So during debugging you may want to switch back to `tns run` or use `adb logcat` in parallel to get logs directly from the android emulator.
+
 
 ## Project Structure
 
@@ -88,7 +93,6 @@ Inside the Page tag add the stack layout.
 
 ```
 <StackLayout orientation="vertical">
-
 </StackLayout>
 ```
 
