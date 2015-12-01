@@ -4,7 +4,7 @@ email: horacio.gonzalez@gmail.com
 owner: Horacio Gonzalez
 description: Beer Tutorials
 filename: beer-tutorials
-baseurl: ""
+baseurl: "http://beertutorials.github.io/website/"
 url: "http://beer-tutorials.org"
 twitter_username: LostInBrittany
 highlighter: pygments
