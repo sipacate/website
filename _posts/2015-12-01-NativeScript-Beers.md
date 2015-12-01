@@ -274,7 +274,7 @@ And then we add the image to the `ListView.itemTemplate`:
 </ListView.itemTemplate>
 ```
 
-![After adding pics](../2015-12-01-beers-with-pics.png)
+![After adding pics](../img/2015-12-01-beers-with-pics.png)
 
 
 ## Let's forget the Button
@@ -303,3 +303,6 @@ To have access to the `ActionBar` with the application title, you only need to e
     <ActionBar title="NativeScript Beers" android.icon="res://ic_test"/>
   </Page.actionBar>
 ```
+
+
+![After adding pics](../img/2015-12-01-beers-with-pics-no-button.png)
