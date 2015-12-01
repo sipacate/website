@@ -14,30 +14,22 @@ In this tutorial we will create a simple app that queries a beer catalog and dis
 Install [NodeJS](https://nodejs.org/) and then using the node package manager (npm), install native script.
 
 
-```
-npm install -g nativescript
-```
+        npm install -g nativescript
 
 After installing native script, create a new project called `nativescript-beers`.
 
 
-```
-tns create nativescript-beers
-```
+        tns create nativescript-beers
 
 Navigate to the project directory and add the mobile development platform.
 
 
-```
-tns platform add android
-```
+        tns platform add android
 
 Run the application on the Android emulator.
 
 
-```
-tns run android --emulator
-```
+        tns run android --emulator
 
 > Note: To run the application in the Android emulator, you need to have the Android SDK
 > installed and configured on your computer.
@@ -91,18 +83,14 @@ This project will use a *stack layout* to design our app. There are [a number of
 Inside the Page tag add the stack layout.
 
 
-```
-<StackLayout orientation="vertical">
-</StackLayout>
-```
+        <StackLayout orientation="vertical">
+        </StackLayout>
 
 
 Define the stack layout with a vertical orientation. Add a button inside the stack layout.
 
 
-```
-<Button text="Get beer list" height="50px" style="width:300px;border:none;font-size:20px;" />
-```
+        <Button text="Get beer list" height="50px" style="width:300px;border:none;font-size:20px;" />
 
 
 Save changes and run the app. It should look something like the below.
@@ -115,28 +103,22 @@ Save changes and run the app. It should look something like the below.
 Add an attribute called `tap` to the *Get beer list* button.
 
 
-```
-tap="beers"
-```
+        tap="beers"
 
 
 Now, when the user taps the search button the `beers` function is called.
 Let’s define the `beers` function inside` main-page.js`.
 
 
-```
-exports.beers = function() {
-  // Code would be here !
-};
-```
+        exports.beers = function() {
+          // Code would be here !
+        };
 
 
 Calling the API will require the `http` module, so import the module into `main-page.js`.
 
 
-```
-var http = require("http");
-```
+        var http = require("http");
 
 
 Inside the `beers` function, and using the `http` module, now make the API call.
@@ -144,17 +126,15 @@ For the needs of this tutorial, the beer catalog is a JSON file on
 `{{ site.baseurl }}/beers/beers.json`.
 
 
-```
-http.getJSON("{{ site.baseurl }}/beers/beers.json").then(function(r) {
-
-    console.log(JSON.stringify(r));
-
-}, function(e) {
-
-    console.log(e);
-
-});
-```
+        http.getJSON("{{ site.baseurl }}/beers/beers.json").then(function(r) {
+        
+            console.log(JSON.stringify(r));
+        
+        }, function(e) {
+        
+            console.log(e);
+        
+        });
 
 
 The code above makes the API call.
@@ -172,22 +152,18 @@ Bind this same observable array to the view so that the view updates whenever a 
 To create the `observable array`, add these variable declarations to `main-page.js` :
 
 
-```
-var observableArray = require("data/observable-array");
-var beerList = new observableArray.ObservableArray([]);
-```
+        var observableArray = require("data/observable-array");
+        var beerList = new observableArray.ObservableArray([]);
 
 
 Next, we iterate through the returned data:
 
 
-```
-var beer = {
-  name: r[i].name,
-  description: r[i].description,
-  alcohol: r[i].alcohol
-}
-```
+        var beer = {
+          name: r[i].name,
+          description: r[i].description,
+          alcohol: r[i].alcohol
+        }
 
 
 ## Binding data to the UI
@@ -195,16 +171,15 @@ var beer = {
 Once the data is in the `beersList` array, bind it to the UI. For displaying the data, create a `ListView` in `main-page.xml`, underneath the existing `Button` element.
 
 
-```
-<ListView>
-    <ListView.itemTemplate>
-      <StackLayout orientation="vertical">
-        <Label id="name" class="beerName" />
-        <Label id="description" textWrap="true" />
-      </StackLayout>
-    </ListView.itemTemplate>
-</ListView>
-```
+
+        <ListView>
+            <ListView.itemTemplate>
+              <StackLayout orientation="vertical">
+                <Label id="name" class="beerName" />
+                <Label id="description" textWrap="true" />
+              </StackLayout>
+            </ListView.itemTemplate>
+        </ListView>
 
 
 Bind the `beersList` array to the list view:
