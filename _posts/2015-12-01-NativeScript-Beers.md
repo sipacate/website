@@ -51,12 +51,11 @@ tns run android --emulator
         │   ├── App_Resources
         │   │   ├── Android
         │   │   └── iOS
-        │   ├── shared
-        │   │   └── ...
-        │   ├── views
-        │   │   └── login
-        │   │       ├── login.js
-        │   │       └── login.xml
+        │   ├──  main-page.js
+        │   ├──  main-page.xml  
+        │   ├──  main-view-model.js  
+        │   ├──  package.json  
+        │   ├──  references.d.ts
         │   ├── app.css
         │   ├── app.js
         │   └── ...
@@ -66,3 +65,15 @@ tns run android --emulator
         └── platforms
             ├── android
             └── ios    
+
+
+Inside  the project folder there are 3 sub-folders: `app`, `lib` and `platforms`. The application source code resides in the `app` folder. Application code is written using JavaScript and the user interface designed using XML.
+
+Inside the `app` folder is a file called `main-page.xml` which has the default user interface code. In `main-view-model.js` is the default model code and` main-page.js` defines the application logic. Finally `app.js` contains the code to start the application with the defined modules.
+
+
+## Designing the app
+
+Let’s start by designing the application using XML. Open `main-page.xml` and look at the default code. Remove everything except the `Page` tag. The `Page` tag has an attribute called `loaded` which executes the `pageLoaded` function once the app loads. The `pageLoaded` function is inside the `main-page.js` file.
+
+This project will use a *stack layout* to design our app. There are [a number of layouts offered by native script](http://docs.nativescript.org/layouts).
