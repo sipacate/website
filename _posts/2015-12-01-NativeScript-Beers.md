@@ -42,29 +42,27 @@ tns run android --emulator
 
 ![Initial app](../img/2015-12-01-initial-app.png)
 
-## Project Structure
+## Project Structures
 
 
-```
-.
-└── nativescript-beers
-    ├── app
-    │   ├── App_Resources
-    │   │   ├── Android
-    │   │   └── iOS
-    │   ├── shared
-    │   │   └── ...
-    │   ├── views
-    │   │   └── login
-    │   │       ├── login.js
-    │   │       └── login.xml
-    │   ├── app.css
-    │   ├── app.js
-    │   └── ...
-    ├── node_modules
-    │   └── tns-core-modules
-    ├── package.json
-    └── platforms
-        ├── android
-        └── ios    
-```
+    .
+    └── nativescript-beers
+        ├── app
+        │   ├── App_Resources
+        │   │   ├── Android
+        │   │   └── iOS
+        │   ├── shared
+        │   │   └── ...
+        │   ├── views
+        │   │   └── login
+        │   │       ├── login.js
+        │   │       └── login.xml
+        │   ├── app.css
+        │   ├── app.js
+        │   └── ...
+        ├── node_modules
+        │   └── tns-core-modules
+        ├── package.json
+        └── platforms
+            ├── android
+            └── ios    
