@@ -40,9 +40,10 @@ tns run android --emulator
 > The easiest way to do it is to install [Android Studio](http://developer.android.com/tools/studio/index.html)
 > for your platform.
 
-![Initial app](../2015-12-01-initial-app.png)
+![Initial app](../img/2015-12-01-initial-app.png)
 
 ## Project Structure
+
 
 ```
 .
