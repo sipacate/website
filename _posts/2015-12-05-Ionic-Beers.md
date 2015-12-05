@@ -15,29 +15,39 @@ In this tutorial we will create a simple app that queries a beer catalog and dis
 
 Install [NodeJS](https://nodejs.org/) and then using the node package manager (npm), install ionic.
 
+
 ```
 npm install -g ionic
 ```
 
+
 After installing ionic, create a new project called `ionic-beers`.
+
 
 ```
 ionic start ionic-beers blank
 ```
 
+
 Navigate to the project directory and add the mobile development platform.
+
 
 ```
 ionic platform add android
 ```
 
+
 Run the application on the Android emulator.
+
 
 ```
 ionic emulate android
 ```
 
+
 Run the application on desktop browser
+
+
 ```
 ionic serve --lab
 ```
@@ -110,6 +120,7 @@ Inside the body tag add the navigation view.
 <ion-nav-view></ion-nav-view>
 ```
 
+
 Create a new directory in the `www` directory named `templates`. In this new directory, create a new file named `menu.html`. In this file, you would use a *ion-menu* directive. Open `menu.html` and add lines
 
 
@@ -136,6 +147,7 @@ Create a new directory in the `www` directory named `templates`. In this new dir
 
 Create a new file in `templates`directory named `home.html`. Open `home.html` and add lines
 
+
 ```
 <ion-view view-title="Ionic Beers">
 	<ion-content class="padding">
@@ -144,7 +156,9 @@ Create a new file in `templates`directory named `home.html`. Open `home.html` an
 </ion-view>
 ```
 
+
 Create new file in `templates` directory called `listBeers.html`
+
 
 ```
 <ion-view view-title="Ionic Beer Gallery">
@@ -173,6 +187,7 @@ Create new file in `templates` directory called `listBeers.html`
 
 
 Open `app.js` to define routes
+
 
 ```
 .config(function ($stateProvider, $urlRouterProvider) {
@@ -204,6 +219,7 @@ Open `app.js` to define routes
 })
 ```
 
+
 Save changes and run the app. It should look something like the below.
 
 ![Get beers list](/img/2015-12-04-getBeersList.png)
@@ -213,6 +229,7 @@ Save changes and run the app. It should look something like the below.
 
 
 Create new file `js` directory called `controllers.js`
+
 
 ```
 angular.module('ionicbeers')
@@ -236,7 +253,8 @@ angular.module('ionicbeers')
       }
     ];
   }])
-  ```
+```
+
 
 This controller defines a list of beers returned to the Angular scope.
 
@@ -247,7 +265,9 @@ Open `index.html` file
 <script src="js/controllers.js"></script>
 ```
 
+
 Open `listBeers.html` and replace lines between `ion-content` tag with those lines
+
 
 ```
 <ul class="list">
@@ -260,15 +280,19 @@ Open `listBeers.html` and replace lines between `ion-content` tag with those lin
 <p>Total number of beers: {{beers.length}}</p>
 ```
 
+
 ## Translate labels
 
 Now the application needs to be translated for users all around the world. For this, add `angular-translate` library with this command and update bower configuration
+
 
 ```
 bower install angular-translate-loader-static-files --save
 ```
 
+
 Open `app.js` file and add lines after `$urlRouterProvider`
+
 
 ```
 // Translate labels / title / menus
@@ -289,14 +313,18 @@ $translateProvider
 $translateProvider.use();
 ```
 
+
 Open `index.html` and add lines to link script
+
 
 ```
 <script src="lib/angular-translate/angular-translate.js"></script>
 <script src="lib/angular-translate-loader-static-files/angular-translate-loader-static-files.js"></script>
 ```
 
+
 Create new files that contain translated labels in a new directory `languages`, for example `en.json`
+
 
 ```
 {
@@ -310,11 +338,14 @@ Create new files that contain translated labels in a new directory `languages`, 
 }
 ```
 
+
 Update `home.html` file to translate labels
+
 
 ```
 {{'content' | translate}}
 ```
+
 
 Change all labels in `*.html` files to translate labels
 
