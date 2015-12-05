@@ -1,3 +1,11 @@
+---
+layout:     post
+title:      "Ionic Beers"
+subtitle:   "A tutorial of the Beer Tutorials series"
+author:     "steffy29"
+---
+
+
 # Ionic Beers
 
 **Ionic Beers** is a tutorial of the [Beer Tutorials](http://www.beer-tutorials.org) series.
