@@ -127,13 +127,13 @@ For the needs of this tutorial, the beer catalog is a JSON file on
 
 
         http.getJSON("{{ site.baseurl }}/beers/beers.json").then(function(r) {
-        
+
             console.log(JSON.stringify(r));
-        
+
         }, function(e) {
-        
+
             console.log(e);
-        
+
         });
 
 
@@ -264,6 +264,7 @@ Now you can delete the `Buttom` from `main-page.xml`.
 ## And how about the ActionBar title?
 
 To have access to the `ActionBar` with the application title, you only need to explicitly declare it in `main-page.xml`:
+
 
 ```
 <Page xmlns="http://schemas.nativescript.org/tns.xsd" loaded="pageLoaded">
