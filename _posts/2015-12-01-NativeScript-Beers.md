@@ -266,12 +266,11 @@ Now you can delete the `Buttom` from `main-page.xml`.
 To have access to the `ActionBar` with the application title, you only need to explicitly declare it in `main-page.xml`:
 
 
-```
-<Page xmlns="http://schemas.nativescript.org/tns.xsd" loaded="pageLoaded">
-  <Page.actionBar>
-    <ActionBar title="NativeScript Beers" android.icon="res://ic_test"/>
-  </Page.actionBar>
-```
+
+    <Page xmlns="http://schemas.nativescript.org/tns.xsd" loaded="pageLoaded">
+      <Page.actionBar>
+        <ActionBar title="NativeScript Beers" android.icon="res://ic_test"/>
+      </Page.actionBar>
 
 
 ![After adding pics]({{ site.baseURL }}/img/2015-12-01-beers-with-pics-no-button.png)
