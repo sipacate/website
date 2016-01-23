@@ -36,7 +36,7 @@ Run the application on the Android emulator.
 > The easiest way to do it is to install [Android Studio](http://developer.android.com/tools/studio/index.html)
 > for your platform.
 >
-> If you find issues while initializing the app, read carefully [these instauctions](http://docs.nativescript.org/setup/ns-cli-setup/)
+> If you find issues while initializing the app, read carefully [these instructions](http://docs.nativescript.org/setup/ns-cli-setup/)
 
 ![Initial app]({{ site.baseURL }}/img/2015-12-01-initial-app.png)
 
