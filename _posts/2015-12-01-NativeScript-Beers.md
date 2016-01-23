@@ -192,10 +192,10 @@ Once the data is in the `beersList` array, bind it to the UI. For displaying the
 Bind the `beersList` array to the list view:
 
 
-        <ListView items="\{\{ beerList \}\}">
+        <ListView items="&lbrace;&lbrace; beerList \}\}">
         <ListView.itemTemplate>
           <StackLayout orientation="vertical">
-            <Label id="name" text="\{\{ name \}\}" class="beerName" />
+            <Label id="name" text="&lbrace;&lbrace; name }}" class="beerName" />
             <Label id="description" text="{{ description }}" textWrap="true" />
           </StackLayout>
         </ListView.itemTemplate>
