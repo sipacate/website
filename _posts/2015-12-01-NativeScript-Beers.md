@@ -221,6 +221,8 @@ In the `pageLoaded` function, set the images array to the observable module and 
         function pageLoaded(args) {
             var page = args.object;
             pageData.set("images", images);
+            pageData.set("beerList", beerList);
+            // it links an xml "beerList" variable to a js beerList variable
             page.bindingContext = pageData;
         }
 
