@@ -10,11 +10,15 @@ twitter_username: LostInBrittany
 highlighter: pygments
 
 # Build settings
-markdown: kramdown
+# markdown: kramdown
 highlighter: pygments
 permalink: pretty
 paginate: 5
 exclude: ["node_modules"]
+
+markdown: redcarpet
+redcarpet:
+  extensions: ["tables", "fenced_code_blocks"]
 
 authors:
   horacio:
