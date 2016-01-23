@@ -69,9 +69,16 @@ The `tns livesync` command instantly transfers XML, CSS, and JavaScript files to
             └── ios    
 
 
-Inside  the project folder there are 3 sub-folders: `app`, `lib` and `platforms`. The application source code resides in the `app` folder. Application code is written using JavaScript and the user interface designed using XML.
 
-Inside the `app` folder is a file called `main-page.xml` which has the default user interface code. In `main-view-model.js` is the default model code and` main-page.js` defines the application logic. Finally `app.js` contains the code to start the application with the defined modules.
+Inside  the project folder there are 3 sub-folders: `app`, `node_modules` and `platforms` :
+
+* `app`: This folder contains all the development resources you need to build your app. You'll be spending most of your time editing the files in here.
+* `node_modules`: This folder contains your app's npm module dependencies. All new NativeScript projects start with a single dependency on tns-core-modules.
+* `node_modules/tns-core-modules`: This folder contains your app's NativeScript modules, which are a series of NativeScript-provided JavaScript modules you'll use to build your app. Each module contains the platform-specific code needed to implement some feature—the camera, http calls, the file system, and so forth—exposed through a platform-agnostic API (e.g. camera.takePicture()). We'll look at some examples momentarily.
+* `package.json`: This file contains your app's configuration details, such as your app id, the version of NativeScript you're using, and also which npm modules your app uses. We'll take a closer look at how to use this file when we talk about using npm modules in chapter 5.
+* `platform`s: This folder contains the platform-specific code NativeScript needs to build native iOS and Android apps. For example in the android folder you'll find things like your project's AndroidManifest.xml and .apk executable files. Similarly, the ios folder contains the Groceries' Xcode project and .ipa executables. Note, users on Windows machines will not have an ios folder.
+
+ Application code is written using JavaScript and the user interface designed using XML. Inside the `app` folder is a file called `main-page.xml` which has the default user interface code. In `main-view-model.js` is the default model code and` main-page.js` defines the application logic. Finally `app.js` contains the code to start the application with the defined modules.
 
 
 ## Designing the app
@@ -251,12 +258,11 @@ Let's call for the beer list without button. We are going to use application's l
 on `app.js`:
 
 
-```
-application.on(application.launchEvent, function (args) {
-   var mainPage = require("./main-page");
-   mainPage.beers();
-})
-```
+    application.on(application.launchEvent, function (args) {
+       var mainPage = require("./main-page");
+       mainPage.beers();
+    })
+
 
 Now you can delete the `Buttom` from `main-page.xml`.
 
