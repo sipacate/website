@@ -163,14 +163,24 @@ To create the `observable array`, add these variable declarations to `main-page.
         var beerList = new observableArray.ObservableArray([]);
 
 
-Next, we iterate through the returned data:
+Then, inside of the http.getJSON().then() method,  iterate through the returned data. Push each beer object into the beerList observableArray:
 
-
-        var beer = {
-          name: r[i].name,
-          description: r[i].description,
-          alcohol: r[i].alcohol
+function beers(args) {
+    http.getJSON("http://www.beer-tutorials.org/beers/beers.json").then(function (r) {
+        for (var i = 0; i< r.length; i++) {
+            var beer = {
+                name: r[i].name,
+                description: r[i].description,
+                alcohol: r[i].alcohol
+            }
+            beerList.push(beer);
         }
+    },
+        function (e) {
+            console.log(e);
+        }
+    );
+}
 
 
 ## Binding data to the UI
@@ -220,7 +230,6 @@ In the `pageLoaded` function, set the images array to the observable module and 
 
         function pageLoaded(args) {
             var page = args.object;
-            pageData.set("images", images);
             pageData.set("beerList", beerList);
             // it links an xml "beerList" variable to a js beerList variable
             page.bindingContext = pageData;
@@ -243,7 +252,7 @@ And then we add the image to the `ListView.itemTemplate`:
 
         <ListView.itemTemplate>
           <StackLayout orientation="horizontal">
-            <Image width="100px" height="100px" src="{{img}}" />
+            <Image width="100px" height="100px" src="{{ img }}" />
             <StackLayout orientation="vertical">
               <Label id="name" text="{{ name }}" class="beerName" />
               <Label id="description" text="{{ description }}" textWrap="true" />
