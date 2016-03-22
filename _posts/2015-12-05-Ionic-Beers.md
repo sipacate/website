@@ -50,7 +50,7 @@ ionic serve --lab
 >
 > If you have issues while initializing the app, read carefully [these instructions](http://ionicframework.com/docs/getting-help/)
 
-![Initial app](../img/2015-12-04-initial-app.png)
+![Initial app]({{ site.baseURL }}/img/2015-12-04-initial-app.png)
 
 
 ## Project Structure
@@ -215,7 +215,7 @@ Open `app.js` to define routes
 
 Save changes and run the app. It should look this way.
 
-![Get beers list](../img/2015-12-04-getBeersList.png)
+![Get beers list]({{ site.baseURL }}/img/2015-12-04-getBeersList.png)
 
 
 ## Fetching data from Beer catalog
@@ -409,7 +409,7 @@ We can also extract the image URL from the received JSON and then we add the ima
 </div>
 ```
 
-![After adding pics](../img/2015-12-04-beers-pics.png)
+![After adding pics]({{ site.baseURL }}/img/2015-12-04-beers-pics.png)
 
 
 ## Let's display the beer description
@@ -519,4 +519,4 @@ $scope.$on('$destroy', function() {
 });
 ```
 
-![After display beer detail](../img/2015-12-04-beer-detail.png)
+![After display beer detail]({{ site.baseURL }}/img/2015-12-04-beer-detail.png)
