@@ -519,4 +519,4 @@ $scope.$on('$destroy', function() {
 });
 ```
 
-![After display beer detail](2015-12-04-beer-detail.png)
+![After display beer detail](../img/2015-12-04-beer-detail.png)
