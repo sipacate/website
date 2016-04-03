@@ -165,22 +165,24 @@ To create the `observable array`, add these variable declarations to `main-page.
 
 Then, inside of the http.getJSON().then() method,  iterate through the returned data. Push each beer object into the beerList observableArray:
 
-function beers(args) {
-    http.getJSON("http://www.beer-tutorials.org/beers/beers.json").then(function (r) {
-        for (var i = 0; i< r.length; i++) {
-            var beer = {
-                name: r[i].name,
-                description: r[i].description,
-                alcohol: r[i].alcohol
-            }
-            beerList.push(beer);
+
+
+        function beers(args) {
+            http.getJSON("http://www.beer-tutorials.org/beers/beers.json").then(function (r) {
+                for (var i = 0; i< r.length; i++) {
+                    var beer = {
+                        name: r[i].name,
+                        description: r[i].description,
+                        alcohol: r[i].alcohol
+                    }
+                    beerList.push(beer);
+                }
+            },
+                function (e) {
+                    console.log(e);
+                }
+            );
         }
-    },
-        function (e) {
-            console.log(e);
-        }
-    );
-}
 
 
 ## Binding data to the UI
